@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Reservix | Hotel Booking</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+</head>
+
+<body>
+
+<!-- =====================================================
+                    LOGIN PROTECTION
+====================================================== -->
+
+<script>
+
+    const isLoggedIn =
+        localStorage.getItem("isLoggedIn") === "true";
+
+    if (!isLoggedIn) {
+
+        alert("Please login first to access hotel booking.");
+
+        window.location.replace("login.html");
+
+    }
+
+</script>
+
+
+<!-- =====================================================
+                    NAVIGATION
+====================================================== -->
+
+<nav>
+
+    <div class="logo">
+        Reservix
+    </div>
+
+    <ul>
+
+        <li>
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+        </li>
+
+        <li>
+            <a href="movie.html">
+                Movie
+            </a>
+        </li>
+
+        <li>
+            <a href="bus.html">
+                Bus
+            </a>
+        </li>
+
+        <li>
+            <a href="train.html">
+                Train
+            </a>
+        </li>
+
+        <li>
+            <a href="hotel.html">
+                Hotel
+            </a>
+        </li>
+
+        <li>
+            <a href="#" onclick="logout()">
+                Logout
+            </a>
+        </li>
+
+    </ul>
+
+</nav>
+
+
+<!-- =====================================================
+                    PAGE TITLE
+====================================================== -->
+
+<section class="page-title">
+
+    <h1>🏨 Hotel Booking</h1>
+
+    <p>
+        Search hotels using Geoapify API and
+        complete your booking instantly.
+    </p>
+
+</section>
+
+
+<!-- =====================================================
+                    SEARCH HOTELS
+====================================================== -->
+
+<section class="booking-container">
+
+    <div class="booking-box">
+
+        <h2>
+            Search Hotels
+        </h2>
+
+        <label>
+            Enter City
+        </label>
+
+        <input
+            type="text"
+            id="city"
+            placeholder="Example : Hyderabad"
+        >
+
+        <button
+            type="button"
+            onclick="searchHotels()">
+
+            Search Hotels
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+                    SEARCH RESULT
+====================================================== -->
+
+<section class="booking-list">
+
+    <h2>
+        Available Hotels
+    </h2>
+
+    <div id="hotelSearchResult">
+
+        <h3>
+            Search a city to view hotels.
+        </h3>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+                    HOTEL BOOKING
+====================================================== -->
+
+<section class="booking-container">
+
+    <div class="booking-box">
+
+        <h2>
+            Hotel Room Booking
+        </h2>
+
+        <form id="hotelForm">
+
+            <label>
+                Customer Name
+            </label>
+
+            <input
+                type="text"
+                id="customerName"
+                placeholder="Enter Customer Name"
+                required
+            >
+
+            <label>
+                Hotel Name
+            </label>
+
+            <input
+                type="text"
+                id="hotelName"
+                placeholder="Hotel Name"
+                readonly
+                required
+            >
+
+            <label>
+                Room Type
+            </label>
+
+            <input
+                type="text"
+                id="roomType"
+                placeholder="Standard / Deluxe / Suite"
+                required
+            >
+
+            <label>
+                Check In
+            </label>
+
+            <input
+                type="date"
+                id="checkIn"
+                required
+            >
+
+            <label>
+                Check Out
+            </label>
+
+            <input
+                type="date"
+                id="checkOut"
+                required
+            >
+
+            <label>
+                Number of Rooms
+            </label>
+
+            <input
+                type="number"
+                id="rooms"
+                min="1"
+                max="10"
+                placeholder="Enter Number of Rooms"
+                required
+            >
+
+            <button type="submit">
+                Book Hotel
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+                    ACTION BUTTON
+====================================================== -->
+
+<section class="action-buttons">
+
+    <button
+        type="button"
+        onclick="loadHotels()">
+
+        🔄 Refresh Bookings
+
+    </button>
+
+</section>
+
+
+<!-- =====================================================
+                    HOTEL BOOKINGS
+====================================================== -->
+
+<section class="booking-list">
+
+    <h2>
+        My Hotel Bookings
+    </h2>
+
+    <table class="booking-table">
+
+        <thead>
+
+        <tr>
+
+            <th>ID</th>
+
+            <th>Customer</th>
+
+            <th>Hotel</th>
+
+            <th>Room Type</th>
+
+            <th>Check In</th>
+
+            <th>Check Out</th>
+
+            <th>Rooms</th>
+
+            <th>Actions</th>
+
+        </tr>
+
+        </thead>
+
+        <tbody id="bookingResult">
+
+        </tbody>
+
+    </table>
+
+</section>
+
+
+<!-- =====================================================
+                    FOOTER
+====================================================== -->
+
+<footer>
+    © 2026 Reservix | All Rights Reserved
+</footer>
+
+
+<script src="./js/hotel.js"></script>
+
+
+<!-- =====================================================
+                    LOGOUT
+====================================================== -->
+
+<!-- <script>
+
+    function logout(){
+
+        localStorage.removeItem("isLoggedIn");
+
+        localStorage.removeItem("username");
+
+        window.location.href = "login.html";
+
+    }
+
+</script> -->
+
+
+</body>
+
+</html>

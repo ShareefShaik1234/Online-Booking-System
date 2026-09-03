@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Reservix | Online Booking</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+                         NAVBAR
+====================================================== -->
+
+<nav>
+
+    <div class="logo">
+        Reservix
+    </div>
+
+    <ul>
+
+        <li>
+            <a href="index.html">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="#services">
+                Services
+            </a>
+        </li>
+
+        <li>
+            <a href="#about">
+                About
+            </a>
+        </li>
+
+        <li>
+            <a href="#contact">
+                Contact
+            </a>
+        </li>
+
+        <li>
+            <a href="login.html">
+                Login
+            </a>
+        </li>
+
+    </ul>
+
+
+    <!-- Theme Toggle -->
+
+    <div class="theme-switch">
+
+        <input
+            type="checkbox"
+            id="theme-toggle"
+        >
+
+        <label
+            for="theme-toggle"
+            class="slider"
+        >
+
+            <span class="sun">
+                🌞
+            </span>
+
+            <span class="moon">
+                🌙
+            </span>
+
+        </label>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =====================================================
+                         MAIN CONTENT
+====================================================== -->
+
+<main>
+
+
+    <!-- =================================================
+                         HERO SECTION
+    ================================================== -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                Book Everything
+                <span>in One Place</span>
+            </h1>
+
+            <p>
+                Movies, buses, trains and hotels —
+                everything you need for a simple,
+                fast and comfortable booking experience.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a
+                    href="#services"
+                    class="btn-primary"
+                >
+                    Get Started
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+                         SERVICES SECTION
+    ================================================== -->
+
+    <section
+        class="services"
+        id="services"
+    >
+
+        <div class="services-title">
+
+            <h2>
+                Our Services
+            </h2>
+
+            <p>
+                Everything you need for a simple
+                and comfortable booking experience.
+            </p>
+
+        </div>
+
+
+        <div class="service-grid">
+
+
+            <!-- ================= MOVIE ================= -->
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🎬
+                </div>
+
+                <h3>
+                    Movie
+                </h3>
+
+                <p>
+                    Book the latest movies easily
+                    and enjoy your favorite shows.
+                </p>
+
+                <a
+                    href="#"
+                    onclick="checkLogin('movie.html'); return false;"
+                >
+                    Book Now
+                </a>
+
+            </div>
+
+
+
+            <!-- ================= BUS ================= -->
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🚌
+                </div>
+
+                <h3>
+                    Bus
+                </h3>
+
+                <p>
+                    Find and book bus tickets
+                    quickly and conveniently.
+                </p>
+
+                <a
+                    href="#"
+                    onclick="checkLogin('bus.html'); return false;"
+                >
+                    Book Now
+                </a>
+
+            </div>
+
+
+
+            <!-- ================= TRAIN ================= -->
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🚆
+                </div>
+
+                <h3>
+                    Train
+                </h3>
+
+                <p>
+                    Reserve train tickets
+                    with a smooth booking experience.
+                </p>
+
+                <a
+                    href="#"
+                    onclick="checkLogin('train.html'); return false;"
+                >
+                    Book Now
+                </a>
+
+            </div>
+
+
+
+            <!-- ================= HOTEL ================= -->
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🏨
+                </div>
+
+                <h3>
+                    Hotel
+                </h3>
+
+                <p>
+                    Discover comfortable hotels
+                    and book your stay easily.
+                </p>
+
+                <a
+                    href="#"
+                    onclick="checkLogin('hotel.html'); return false;"
+                >
+                    Book Now
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+                         ABOUT SECTION
+    ================================================== -->
+
+    <section
+        class="about"
+        id="about"
+    >
+
+        <h2>
+            About Reservix
+        </h2>
+
+        <p>
+            Reservix is an online booking platform designed
+            to make your everyday reservations simple,
+            secure and convenient. Book movies, buses,
+            trains and hotels from one place.
+        </p>
+
+    </section>
+
+
+
+    <!-- =================================================
+                         CONTACT SECTION
+    ================================================== -->
+
+    <section
+        class="about"
+        id="contact"
+    >
+
+        <h2>
+            Contact Us
+        </h2>
+
+        <p>
+            Have questions about your booking?
+            We're here to help you.
+        </p>
+
+    </section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+                         FOOTER
+====================================================== -->
+
+<footer>
+
+    © 2026 Reservix |
+    Developed by Shareef & Heena
+
+</footer>
+
+
+
+<!-- =====================================================
+                         JAVASCRIPT
+====================================================== -->
+
+<script src="js/script.js"></script>
+
+</body>
+
+</html>

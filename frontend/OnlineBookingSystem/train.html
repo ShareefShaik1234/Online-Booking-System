@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reservix | Train Booking</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<!-- =====================================================
+                    LOGIN PROTECTION
+====================================================== -->
+
+<script>
+
+    const isLoggedIn =
+        localStorage.getItem("isLoggedIn") === "true";
+
+    if (!isLoggedIn) {
+
+        alert("Please login first to access train booking.");
+
+        window.location.replace("login.html");
+
+    }
+
+</script>
+
+
+<!-- =====================================================
+                    NAVIGATION
+====================================================== -->
+
+<nav>
+
+    <div class="logo">
+        Reservix
+    </div>
+
+    <ul>
+
+        <li><a href="dashboard.html">Dashboard</a></li>
+
+        <li><a href="movie.html">Movie</a></li>
+
+        <li><a href="bus.html">Bus</a></li>
+
+        <li><a href="train.html">Train</a></li>
+
+        <li><a href="hotel.html">Hotel</a></li>
+
+        <li>
+            <a href="#" onclick="logout()">Logout</a>
+        </li>
+
+    </ul>
+
+</nav>
+
+
+<!-- =====================================================
+                    PAGE TITLE
+====================================================== -->
+
+<section class="page-title">
+
+    <h1>🚆 Train Booking</h1>
+
+    <p>Book your train tickets easily.</p>
+
+</section>
+
+
+<!-- =====================================================
+                    SEARCH TRAIN
+====================================================== -->
+
+<section class="booking-container">
+
+    <div class="booking-box">
+
+        <h2>Search Train</h2>
+
+        <label>Source</label>
+
+        <input
+            type="text"
+            id="searchSource"
+            placeholder="Enter Source Station"
+        >
+
+        <label>Destination</label>
+
+        <input
+            type="text"
+            id="searchDestination"
+            placeholder="Enter Destination Station"
+        >
+
+        <button
+            type="button"
+            onclick="searchTrain()">
+
+            Search Train
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+                    TRAIN SEARCH RESULT
+====================================================== -->
+
+<section class="booking-list">
+
+    <h2>🚆 Available Train</h2>
+
+    <div id="trainResult">
+
+        <div class="empty-route">
+
+            <h3>Search a train route</h3>
+
+            <p>
+                Enter Source and Destination
+                to view available trains.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+                    TRAIN RESERVATION
+====================================================== -->
+
+<section class="booking-container">
+
+    <div class="booking-box">
+
+        <h2>📝 Train Reservation</h2>
+
+        <form id="trainForm">
+
+            <label>Passenger Name</label>
+
+            <input
+                type="text"
+                id="passengerName"
+                placeholder="Enter Passenger Name"
+                required
+            >
+
+            <label>Train Name</label>
+
+            <input
+                type="text"
+                id="trainName"
+                placeholder="Train Name"
+                readonly
+                required
+            >
+
+            <label>Source</label>
+
+            <input
+                type="text"
+                id="source"
+                placeholder="Source"
+                readonly
+                required
+            >
+
+            <label>Destination</label>
+
+            <input
+                type="text"
+                id="destination"
+                placeholder="Destination"
+                readonly
+                required
+            >
+
+            <label>Journey Date</label>
+
+            <input
+                type="date"
+                id="journeyDate"
+                required
+            >
+
+            <label>Coach</label>
+
+            <select id="coach" required>
+
+                <option value="">Select Coach</option>
+
+                <option>Sleeper (SL)</option>
+
+                <option>3A</option>
+
+                <option>2A</option>
+
+                <option>1A</option>
+
+                <option>Chair Car (CC)</option>
+
+                <option>Executive Chair Car (EC)</option>
+
+            </select>
+
+            <label>Seats</label>
+
+            <input
+                type="number"
+                id="seats"
+                min="1"
+                max="10"
+                placeholder="Enter Seats"
+                required
+            >
+
+            <button type="submit">
+                Book Train
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+                    ACTION BUTTON
+====================================================== -->
+
+<section class="action-buttons">
+
+    <button onclick="loadTrain()">
+        📋 View All Bookings
+    </button>
+
+</section>
+
+
+<!-- =====================================================
+                    TRAIN BOOKINGS
+====================================================== -->
+
+<section class="booking-list">
+
+    <h2>Train Bookings</h2>
+
+    <table class="booking-table">
+
+        <thead>
+
+        <tr>
+
+            <th>ID</th>
+
+            <th>Passenger</th>
+
+            <th>Train</th>
+
+            <th>Source</th>
+
+            <th>Destination</th>
+
+            <th>Date</th>
+
+            <th>Coach</th>
+
+            <th>Seats</th>
+
+            <th>Actions</th>
+
+        </tr>
+
+        </thead>
+
+        <tbody id="bookingResult">
+
+        </tbody>
+
+    </table>
+
+</section>
+
+
+<!-- =====================================================
+                    FOOTER
+====================================================== -->
+
+<footer>
+
+    © 2026 Reservix | All Rights Reserved
+
+</footer>
+
+
+<script src="./js/train.js"></script>
+
+
+<!-- =====================================================
+                    LOGOUT
+====================================================== -->
+
+<!-- <script>
+
+    function logout(){
+
+        localStorage.removeItem("isLoggedIn");
+
+        localStorage.removeItem("username");
+
+        window.location.href = "login.html";
+
+    }
+
+</script> -->
+
+
+</body>
+
+</html>

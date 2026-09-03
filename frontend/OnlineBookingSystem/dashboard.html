@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Reservix | Dashboard</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+                    LOGIN PROTECTION
+====================================================== -->
+
+<script>
+
+    const isLoggedIn =
+        localStorage.getItem("isLoggedIn") === "true";
+
+    if (!isLoggedIn) {
+
+        alert("Please login first.");
+
+        window.location.replace("login.html");
+
+    }
+
+</script>
+
+
+<!-- =====================================================
+                    NAVIGATION
+====================================================== -->
+
+<nav>
+
+    <div class="logo">
+        Reservix
+    </div>
+
+
+    <ul>
+
+        <li>
+            <a href="index.html">
+                Home
+            </a>
+        </li>
+
+        <li>
+            <a href="#services">
+                Services
+            </a>
+        </li>
+
+        <li>
+            <a href="#profile">
+                Profile
+            </a>
+        </li>
+
+        <li>
+            <a href="#" onclick="logout()">
+                Logout
+            </a>
+        </li>
+
+    </ul>
+
+</nav>
+
+
+<!-- =====================================================
+                    WELCOME SECTION
+====================================================== -->
+
+<section class="page-title">
+
+    <h1 id="welcomeMessage">
+        Welcome 👋
+    </h1>
+
+    <p>
+        Select a booking service below to continue.
+    </p>
+
+</section>
+
+
+<!-- =====================================================
+                    SERVICES
+====================================================== -->
+
+<section
+    class="services"
+    id="services"
+>
+
+    <div class="services-title">
+
+        <h2>
+            Choose Your Service
+        </h2>
+
+        <p>
+            Book movies, buses, trains and hotels
+            easily from one place.
+        </p>
+
+    </div>
+
+
+    <div class="service-grid">
+
+
+        <!-- MOVIE -->
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                🎬
+            </div>
+
+            <h3>
+                Movie Booking
+            </h3>
+
+            <p>
+                Book your favourite movies
+                quickly and securely.
+            </p>
+
+            <a href="movie.html">
+                Book Now
+            </a>
+
+        </div>
+
+
+        <!-- BUS -->
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                🚌
+            </div>
+
+            <h3>
+                Bus Booking
+            </h3>
+
+            <p>
+                Reserve bus tickets
+                at affordable prices.
+            </p>
+
+            <a href="bus.html">
+                Book Now
+            </a>
+
+        </div>
+
+
+        <!-- TRAIN -->
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                🚆
+            </div>
+
+            <h3>
+                Train Booking
+            </h3>
+
+            <p>
+                Find and reserve train tickets
+                instantly.
+            </p>
+
+            <a href="train.html">
+                Book Now
+            </a>
+
+        </div>
+
+
+        <!-- HOTEL -->
+
+        <div class="service-card">
+
+            <div class="service-icon">
+                🏨
+            </div>
+
+            <h3>
+                Hotel Booking
+            </h3>
+
+            <p>
+                Choose the best hotels
+                for your perfect stay.
+            </p>
+
+            <a href="hotel.html">
+                Book Now
+            </a>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+                    PROFILE
+====================================================== -->
+
+<section
+    class="about"
+    id="profile"
+>
+
+    <h2>
+        Your Profile
+    </h2>
+
+    <p id="usernameDisplay">
+        Logged in user
+    </p>
+
+</section>
+
+
+<!-- =====================================================
+                    FOOTER
+====================================================== -->
+
+<footer>
+
+    © 2026 Reservix |
+    Developed by Shareef & Heena
+
+</footer>
+
+
+<!-- =====================================================
+                    DASHBOARD SCRIPT
+====================================================== -->
+
+<script>
+
+    // Get username saved during login
+
+    const username =
+        localStorage.getItem("username");
+
+
+    // Display username
+
+    if (username) {
+
+        document.getElementById("welcomeMessage").innerText =
+            "Welcome, " + username + " 👋";
+
+        document.getElementById("usernameDisplay").innerText =
+            "Username: " + username;
+
+    }
+
+
+    // Logout
+
+    function logout(){
+
+        localStorage.removeItem("isLoggedIn");
+
+        localStorage.removeItem("username");
+
+        window.location.href = "login.html";
+
+    }
+
+</script>
+
+
+</body>
+
+</html>

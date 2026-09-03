@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Movie Booking</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+<!-- ===================== NAVIGATION ===================== -->
+
+<nav>
+
+    <div class="logo">
+        Reservix
+    </div>
+
+
+    <ul>
+
+        <li>
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+        </li>
+
+        <li>
+            <a href="movie.html">
+                Movie
+            </a>
+        </li>
+
+        <li>
+            <a href="bus.html">
+                Bus
+            </a>
+        </li>
+
+        <li>
+            <a href="train.html">
+                Train
+            </a>
+        </li>
+
+        <li>
+            <a href="hotel.html">
+                Hotel
+            </a>
+        </li>
+
+        <li>
+            <a href="#" onclick="logout()">
+                Logout
+            </a>
+        </li>
+
+    </ul>
+
+</nav>
+
+<!-- ===================== PAGE TITLE ===================== -->
+
+<section class="page-title">
+
+    <h1>🎬 Movie Booking</h1>
+
+    <p>Book your favourite movie tickets.</p>
+
+</section>
+
+<!-- ===================== MOVIE FILTERS ===================== -->
+
+<section class="movie-filters">
+
+    <button onclick="loadMoviesByCategory('popular')">
+
+        🔥 Popular
+
+    </button>
+
+    <button onclick="loadMoviesByCategory('now-playing')">
+
+        🎬 Now Playing
+
+    </button>
+
+    <button onclick="loadMoviesByCategory('top-rated')">
+
+        ⭐ Top Rated
+
+    </button>
+
+    <button onclick="loadMoviesByCategory('trending')">
+
+        📈 Trending
+
+    </button>
+
+    <button onclick="loadLanguage('te')">
+
+        🇮🇳 Telugu
+
+    </button>
+
+    <button onclick="loadLanguage('hi')">
+
+        🇮🇳 Hindi
+
+    </button>
+
+    <button onclick="loadLanguage('ta')">
+
+        🇮🇳 Tamil
+
+    </button>
+
+    <button onclick="loadLanguage('ml')">
+
+        🇮🇳 Malayalam
+
+    </button>
+
+    <button onclick="loadLanguage('en')">
+
+        🇬🇧 English
+
+    </button>
+
+</section>
+
+<!-- ===================== MOVIE CARDS ===================== -->
+
+<section class="popular-movies">
+
+    <h2 id="movieCategoryTitle">
+
+        🔥 Popular Movies
+
+    </h2>
+
+    <div id="movieCards" class="movie-grid">
+
+    </div>
+
+</section>
+
+<!-- ===================== BOOKING FORM ===================== -->
+
+<section class="booking-container">
+
+    <div class="booking-box">
+
+        <h2>Book Movie</h2>
+
+        <form id="movieForm">
+
+            <label>Customer Name</label>
+
+            <input
+                    type="text"
+                    id="customerName"
+                    placeholder="Enter Customer Name"
+                    required>
+
+            <label>Movie Name</label>
+
+            <input
+                    type="text"
+                    id="movieName"
+                    placeholder="Select a Movie"
+                    readonly>
+
+            <label>Theatre Name</label>
+
+            <input
+                    type="text"
+                    id="theatreName"
+                    placeholder="Enter Theatre Name"
+                    required>
+
+            <label>Show Time</label>
+
+            <input
+                    type="time"
+                    id="showTime"
+                    required>
+
+            <label>Seats</label>
+
+            <input
+                    type="number"
+                    id="seats"
+                    min="1"
+                    max="10"
+                    placeholder="Enter Number of Seats"
+                    required>
+
+            <button type="submit">
+
+                Book Movie
+
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+<!-- ===================== ACTION BUTTONS ===================== -->
+
+<section class="action-buttons">
+
+    <button onclick="loadBookings()">
+
+        🔄 Refresh Bookings
+
+    </button>
+
+</section>
+
+<!-- ===================== BOOKING TABLE ===================== -->
+
+<section class="booking-list">
+
+    <h2>Movie Booking History</h2>
+
+    <table class="booking-table">
+
+        <thead>
+
+        <tr>
+
+            <th>ID</th>
+
+            <th>Customer</th>
+
+            <th>Movie</th>
+
+            <th>Theatre</th>
+
+            <th>Show Time</th>
+
+            <th>Seats</th>
+
+            <th>Actions</th>
+
+        </tr>
+
+        </thead>
+
+        <tbody id="bookingResult">
+
+        </tbody>
+
+    </table>
+
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+
+<footer>
+    © 2026 Reservix | All Rights Reserved
+</footer>
+
+
+<script src="./js/movie.js"></script>
+
+</body>
+
+</html>
